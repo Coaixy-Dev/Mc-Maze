@@ -1,0 +1,11 @@
+name: mc-alg
+version: '${version}'
+main: ren.lawliet.mc.mcalg.Mc_alg
+api-version: '1.20'
+commands:
+  maze:
+    description: "创建迷宫"
+    usage: /maze
+    aliases: [mz,maz]
+    permission: "maze.use"
+    permission-message: "permission denied"
