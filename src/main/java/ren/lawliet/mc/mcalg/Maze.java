@@ -8,7 +8,7 @@ import java.util.Random;
  * @packageName ren.lawliet.mc.mcalg
  */
 
-public class maze {
+public class Maze {
     // 0 通路 1 路障 2 起点 3 终点
     public static int[][] generateMaze(int rows, int cols, double obstaclePercentage) {
         // 初始化迷宫，全部设为路障

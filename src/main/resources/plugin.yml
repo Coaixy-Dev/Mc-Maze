@@ -7,5 +7,11 @@ commands:
     description: "创建迷宫"
     usage: /maze
     aliases: [mz,maz]
-    permission: "maze.use"
+    permission: "maze.create"
+    permission-message: "permission denied"
+  pop:
+    description: "冒泡排序"
+    usage: /pop
+#    aliases: [ mz,maz ]
+    permission: "maze.pop"
     permission-message: "permission denied"
