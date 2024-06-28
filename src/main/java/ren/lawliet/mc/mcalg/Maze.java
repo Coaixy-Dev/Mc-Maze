@@ -1,5 +1,12 @@
 package ren.lawliet.mc.mcalg;
 
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.World;
+import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
+
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -63,5 +70,42 @@ public class Maze {
             maze[currentRow][currentCol] = 6;
         }
         maze[endRow][endCol] = 3;
+    }
+
+    public static void startMaze(Player player, String[] args) {
+        player.sendMessage("[Maze] Create Maze");
+        Block block = Objects.requireNonNull(player.getTargetBlockExact(10));
+        Location location = block.getLocation();
+        player.sendMessage(block.getType().name() + " " + location.getX() + " " + location.getY() + " " + location.getZ());
+
+        int row = Integer.parseInt(args[1]);
+        int col = Integer.parseInt(args[2]);
+        double ob = Double.parseDouble(args[3]);
+        player.sendMessage("The Size of " + row + " " + col);
+        int[][] mazeArray = Maze.generateMaze(row, col, ob);
+        // x is row z is col
+        int startX = (int) location.getX();
+        int startZ = (int) location.getZ();
+        int Y = (int) location.getY();
+        World world = player.getWorld();
+
+        for (int i = 0; i < mazeArray.length; i++) {
+            for (int j = 0; j < mazeArray[i].length; j++) {
+                int x = startX + j;
+                int z = startZ + i;
+                Block newBlock = world.getBlockAt(x, Y, z);
+                if (mazeArray[i][j] == 1) {
+                    newBlock.setType(Material.STONE);
+                    world.getBlockAt(x, Y+1, z).setType(Material.STONE);
+                } else if (mazeArray[i][j] == 0) {
+                    newBlock.setType(Material.AIR);
+                    world.getBlockAt(x, Y+1, z).setType(Material.AIR);
+                }
+                if (mazeArray[i][j] == 2 || mazeArray[i][j] == 3) {
+                    newBlock.setType(block.getType());
+                    world.getBlockAt(x, Y+1, z).setType(block.getType());
+                }
+            }
+        }
     }
 }

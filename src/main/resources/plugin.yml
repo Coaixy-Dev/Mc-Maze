@@ -3,15 +3,20 @@ version: '${version}'
 main: ren.lawliet.mc.mcalg.Mc_alg
 api-version: '1.20'
 commands:
-  maze:
-    description: "创建迷宫"
-    usage: /maze
-    aliases: [mz,maz]
-    permission: "maze.create"
+#  maze:
+#    description: "创建迷宫"
+#    usage: /maze
+#    aliases: [mz,maz]
+#    permission: "maze.create"
+#    permission-message: "permission denied"
+#  pop:
+#    description: "冒泡排序"
+#    usage: /pop
+##    aliases: [ mz,maz ]
+#    permission: "maze.pop"
+#    permission-message: "permission denied"
+  alg:
+    description: "Mc Alg"
+    usage: /alg
     permission-message: "permission denied"
-  pop:
-    description: "冒泡排序"
-    usage: /pop
-#    aliases: [ mz,maz ]
-    permission: "maze.pop"
-    permission-message: "permission denied"
+    permission: "alg.use"
