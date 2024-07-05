@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @packageName ren.lawliet.mc.mcalg
  */
 
-public class PopSort {
+public class Sort {
 
     private static int[] generateArray(int size) {
         Random rand = new Random();
@@ -47,7 +47,7 @@ public class PopSort {
         return result;
     }
 
-    public static void sort(JavaPlugin plugin, World world, Location location, int size) throws InterruptedException {
+    public static void popSort(JavaPlugin plugin, World world, Location location, int size) throws InterruptedException {
         int[] array = generateArray(size);
         ArrayList<Material> materials = generateMaterial(array.length);
         double x = location.getX();
